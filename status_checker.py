@@ -62,7 +62,7 @@ def send_email(content):
     server.quit()
 
 
-schedule.every(15).seconds.do(get_response, ['...', '...', '...', '...'])
+schedule.every(1).hours.do(get_response, ['...', '...', '...', '...'])
 
 while True:
     schedule.run_pending()
