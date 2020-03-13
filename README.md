@@ -1,9 +1,17 @@
 # Green Card Application Status Checker
 
-## Usage
-* Configure username and password to desirable Gmail account that you want to send email with
+Check your Green Card status in periodic manner.
+Or check other applications nearby you to check what their statuses are. 
+ 
+status_checker.py
+------
+Periodically check your application statuses and get notified by email if there's any update. 
+
+**Usage**
+* Configure username and password of desirable Gmail account that you want to send email with
 * Configure sender/receiver email address; sender's email address should match with that of Gmail account you configured earlier.
-* Configure frequency and application numbers.
+* Configure application numbers.
+* Configure frequency of API call.
 
 ```
 Example cron setup:
@@ -13,6 +21,23 @@ schedule.every().hour.do(job)
 schedule.every().day.at("10:30").do(job)
 schedule.every().monday.do(job)
 schedule.every().wednesday.at("13:15").do(job)
+```
+
+
+nearby_status_checker.py
+------
+Check nearby applications to see/count their statuses.
+
+**Usage**
+* Configure what type of application you want to check (e.g. 'I-485')
+* Configure application number and counts 
+
+```
+Example setup:
+
+get_statuses('I-485', 'MSC1234567890', 3)
+
+will check statuses of 'MSC1234567890', 'MSC1234567889', 'MSC1234567888'.
 ```
 
 ## Disclaimer
